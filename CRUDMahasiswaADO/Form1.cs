@@ -74,7 +74,12 @@ namespace CRUDMahasiswaADO
                 while (reader.Read())
                 {
                     dataGridView1.Rows.Add(
-                        reader["NIM"].ToString(), reader["Nama"].ToString(), reader["JenisKelamin"].ToString(), Convert.ToDateTime(reader["TanggalLahir"]).ToString("yyyy-MM-dd"), reader["Alamat"].ToString(), reader["KodeProdi"].ToString());
+                        reader["NIM"].ToString(), 
+                        reader["Nama"].ToString(), 
+                        reader["JenisKelamin"].ToString(), 
+                        Convert.ToDateTime(reader["TanggalLahir"]).ToString("yyyy-MM-dd"), 
+                        reader["Alamat"].ToString(), 
+                        reader["KodeProdi"].ToString());
                 }
 
 
