@@ -16,7 +16,7 @@ namespace CRUDMahasiswaADO
     public partial class FormMahasiswa : Form
     {
         private readonly SqlConnection conn;
-        private readonly string connectionString = "Data Source=DESKTOP-9K7QG8P;Initial Catalog=DB_Mahasiswa;Integrated Security=True";
+        private readonly string connectionString = "Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBAkademikADO;Integrated Security=True";
         public FormMahasiswa()
         {
             InitializeComponent();
@@ -207,7 +207,7 @@ namespace CRUDMahasiswaADO
                     "Konfirmasi Hapus", 
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
-                if (resultConfirm != DialogResult.Yes)
+                if (resultConfirm == DialogResult.Yes)
                 {
                     string query = "DELETE FROM Mahasiswa WHERE NIM=@NIM";
                     SqlCommand cmd = new SqlCommand(query, conn);

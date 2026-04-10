@@ -155,6 +155,7 @@
             this.btnConnect.TabIndex = 12;
             this.btnConnect.Text = "membuka koneksi";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // btnLoad
             // 
@@ -164,6 +165,7 @@
             this.btnLoad.TabIndex = 13;
             this.btnLoad.Text = "Menampilkan Data";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // button3
             // 
@@ -173,6 +175,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "menambah data";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // button4
             // 
@@ -182,6 +185,7 @@
             this.button4.TabIndex = 15;
             this.button4.Text = "mengubah data";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // button5
             // 
@@ -191,6 +195,7 @@
             this.button5.TabIndex = 16;
             this.button5.Text = "menghapus data";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dataGridView1
             // 
