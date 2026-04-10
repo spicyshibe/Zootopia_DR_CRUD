@@ -35,11 +35,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbJK = new System.Windows.Forms.ComboBox();
-            this.textNIM = new System.Windows.Forms.TextBox();
+            this.txtNIM = new System.Windows.Forms.TextBox();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtKodeProdi = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -112,13 +112,13 @@
             this.cmbJK.Size = new System.Drawing.Size(202, 24);
             this.cmbJK.TabIndex = 6;
             // 
-            // textNIM
+            // txtNIM
             // 
-            this.textNIM.Location = new System.Drawing.Point(159, 47);
-            this.textNIM.Name = "textNIM";
-            this.textNIM.Size = new System.Drawing.Size(202, 22);
-            this.textNIM.TabIndex = 7;
-            this.textNIM.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtNIM.Location = new System.Drawing.Point(159, 47);
+            this.txtNIM.Name = "txtNIM";
+            this.txtNIM.Size = new System.Drawing.Size(202, 22);
+            this.txtNIM.TabIndex = 7;
+            this.txtNIM.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtNama
             // 
@@ -142,12 +142,12 @@
             this.textBox3.Size = new System.Drawing.Size(290, 70);
             this.textBox3.TabIndex = 10;
             // 
-            // textBox4
+            // txtKodeProdi
             // 
-            this.textBox4.Location = new System.Drawing.Point(159, 304);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(198, 22);
-            this.textBox4.TabIndex = 11;
+            this.txtKodeProdi.Location = new System.Drawing.Point(159, 304);
+            this.txtKodeProdi.Name = "txtKodeProdi";
+            this.txtKodeProdi.Size = new System.Drawing.Size(198, 22);
+            this.txtKodeProdi.TabIndex = 11;
             // 
             // btnConnect
             // 
@@ -204,11 +204,11 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtKodeProdi);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtNama);
-            this.Controls.Add(this.textNIM);
+            this.Controls.Add(this.txtNIM);
             this.Controls.Add(this.cmbJK);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -233,11 +233,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbJK;
-        private System.Windows.Forms.TextBox textNIM;
+        private System.Windows.Forms.TextBox txtNIM;
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtKodeProdi;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button button3;

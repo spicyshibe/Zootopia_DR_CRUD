@@ -91,6 +91,67 @@ namespace CRUDMahasiswaADO
             }
         }
 
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                if (txtNIM.Text == "")
+                {
+                    MessageBox.Show("NIM tidak boleh kosong.");
+                    txtNIM.Focus();
+                    return;
+                }
+
+                if (txtNama.Text == "")
+                {
+                    MessageBox.Show("Nama tidak boleh kosong.");
+                    txtNama.Focus();
+                    return;
+                }
+
+                if (cmbJK.Text == "")
+                {
+                    MessageBox.Show("Jenis Kelamin harus dipilih.");
+                    cmbJK.Focus();
+                    return;
+                }
+
+                if (txtKodeProdi.Text == "")
+                {
+                    MessageBox.Show("Kode Prodi tidak boleh kosong.");
+                    txtKodeProdi.Focus();
+                    return;
+                }
+                string query = "INSERT INTO Mahasiswa (NIM, Nama, JenisKelamin, TanggalLahir, Alamat, KodeProdi) " +
+                               "VALUES (@NIM, @Nama, @JenisKelamin, @TanggalLahir, @Alamat, @KodeProdi)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@NIM", textBox1.Text);
+                cmd.Parameters.AddWithValue("@Nama", textBox2.Text);
+                cmd.Parameters.AddWithValue("@JenisKelamin", comboBox1.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@TanggalLahir", dateTimePicker1.Value);
+                cmd.Parameters.AddWithValue("@Alamat", textBox3.Text);
+                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Data berhasil ditambahkan!");
+                    btnLoad.PerformClick(); // Refresh data grid
+                }
+                else
+                {
+                    MessageBox.Show("Gagal menambahkan data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
