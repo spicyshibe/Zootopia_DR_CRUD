@@ -126,20 +126,23 @@ namespace CRUDMahasiswaADO
                     txtKodeProdi.Focus();
                     return;
                 }
+
                 string query = "INSERT INTO Mahasiswa (NIM, Nama, JenisKelamin, TanggalLahir, Alamat, KodeProdi) " +
                                "VALUES (@NIM, @Nama, @JenisKelamin, @TanggalLahir, @Alamat, @KodeProdi)";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@NIM", textBox1.Text);
-                cmd.Parameters.AddWithValue("@Nama", textBox2.Text);
-                cmd.Parameters.AddWithValue("@JenisKelamin", comboBox1.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@TanggalLahir", dateTimePicker1.Value);
-                cmd.Parameters.AddWithValue("@Alamat", textBox3.Text);
+                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@JenisKelamin", cmbJK.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value);
+                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
                 cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
-                int rowsAffected = cmd.ExecuteNonQuery();
-                if (rowsAffected > 0)
+                cmd.Parameters.AddWithValue("@TanggalDaftar", DateTime.Now);
+                int result = cmd.ExecuteNonQuery();
+                
+                if (result > 0)
                 {
                     MessageBox.Show("Data berhasil ditambahkan!");
-                    btnLoad.PerformClick(); // Refresh data grid
+                    btnLoad.PerformClick(); 
                 }
                 else
                 {
@@ -148,7 +151,7 @@ namespace CRUDMahasiswaADO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Terjadi Kesalahan: " + ex.Message);
             }
         }
 
