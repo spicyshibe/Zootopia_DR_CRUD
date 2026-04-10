@@ -82,7 +82,12 @@ namespace CRUDMahasiswaADO
                         reader["KodeProdi"].ToString());
                 }
 
+                reader.Close();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menampilkan data: " + ex.Message);
             }
         }
 
