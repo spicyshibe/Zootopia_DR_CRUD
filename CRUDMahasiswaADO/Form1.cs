@@ -248,29 +248,31 @@ namespace CRUDMahasiswaADO
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ClearForm()
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            txtNIM.Clear();
+            txtNama.Clear();
+            cmbJK.SelectedIndex = -1;
+            dtpTanggalLahir.Value = DateTime.Now;
+            txtAlamat.Clear();
+            txtKodeProdi.Clear();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cmbJK.Items.Clear();
+            cmbJK.Items.Add("L");
+            cmbJK.Items.Add("P");
 
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridView1.CellClick += dataGridView1_CellClick;
         }
+
+
+
     }
 }

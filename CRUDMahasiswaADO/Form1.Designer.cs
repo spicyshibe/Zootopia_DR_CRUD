@@ -57,7 +57,6 @@
             this.label1.Size = new System.Drawing.Size(31, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "NIM";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -67,7 +66,6 @@
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nama";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -104,7 +102,6 @@
             this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Kode Prodi";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // cmbJK
             // 
@@ -120,7 +117,6 @@
             this.txtNIM.Name = "txtNIM";
             this.txtNIM.Size = new System.Drawing.Size(202, 22);
             this.txtNIM.TabIndex = 7;
-            this.txtNIM.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtNama
             // 
