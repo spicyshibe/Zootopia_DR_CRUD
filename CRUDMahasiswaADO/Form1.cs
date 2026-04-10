@@ -155,6 +155,43 @@ namespace CRUDMahasiswaADO
             }
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                string query = @"UPDATE Mahasiswa Set Nama=@Nama, JenisKelamin=@JK, TanggalLahir=@TanggalLahir, Alamat=@Alamat, KodeProdi=@KodeProdi WHERE NIM=@NIM";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@JK", cmbJK.Text);
+                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value.Date);
+                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
+                
+                int result = cmd.ExecuteNonQuery();
+                
+                if (result > 0)
+                {
+                    MessageBox.Show("Data berhasil diperbarui!");
+                    ClearForm();
+                    btnLoad.PerformClick(); 
+                }
+                else
+                {
+                    MessageBox.Show("Data ga di temuin");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Kesalahan: " + ex.Message);
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
