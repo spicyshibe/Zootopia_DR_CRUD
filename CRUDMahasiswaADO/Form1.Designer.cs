@@ -72,6 +72,7 @@
             this.btnImpDb = new System.Windows.Forms.Button();
             this.fotoMhs = new System.Windows.Forms.PictureBox();
             this.lblCountMhs = new System.Windows.Forms.Label();
+            this.btnCari = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -460,11 +461,22 @@
             this.lblCountMhs.Size = new System.Drawing.Size(0, 16);
             this.lblCountMhs.TabIndex = 28;
             // 
+            // btnCari
+            // 
+            this.btnCari.Location = new System.Drawing.Point(367, 47);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.Size = new System.Drawing.Size(113, 23);
+            this.btnCari.TabIndex = 29;
+            this.btnCari.Text = "cari";
+            this.btnCari.UseVisualStyleBackColor = true;
+            this.btnCari.Click += new System.EventHandler(this.btnCari_Click);
+            // 
             // FormMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 498);
+            this.Controls.Add(this.btnCari);
             this.Controls.Add(this.lblCountMhs);
             this.Controls.Add(this.fotoMhs);
             this.Controls.Add(this.btnImpDb);
@@ -552,6 +564,7 @@
         private System.Windows.Forms.Button btnImpDb;
         private System.Windows.Forms.PictureBox fotoMhs;
         private System.Windows.Forms.Label lblCountMhs;
+        private System.Windows.Forms.Button btnCari;
     }
 }
 

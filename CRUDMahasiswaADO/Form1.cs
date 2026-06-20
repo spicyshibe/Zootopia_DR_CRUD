@@ -382,7 +382,7 @@ namespace CRUDMahasiswaADO
 
         private void btnImpExcel_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "Excel Workbook|*.xlsx" })
+            using (OpenFileDialog openFileDialog = new OpenFileDialog { Filter = "Excel Workbook| *. xlsx" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -477,6 +477,11 @@ namespace CRUDMahasiswaADO
                 simpanLog("General Error:" + ex.Message);
                 MessageBox.Show("General Error:" + ex.Message);
             }
+        }
+
+        private void btnCari_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
