@@ -10,7 +10,7 @@ namespace CRUDMahasiswaADO
 {
     internal class DAL
     {
-        static string connectionString = "Data Source=NamaServer; Initial Catalog=DBAkademikADO; User ID=sa;Password=PasswordSA;";
+        static string connectionString = "Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBAkademikADO;Integrated Security=True";
 
         public string GetConnectionString()
         {
@@ -24,11 +24,17 @@ namespace CRUDMahasiswaADO
 
         public int CountMhs()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("sp_CountMahasiswa", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
             SqlParameter outputParam = new SqlParameter("@pCount", SqlDbType.Int);
             outputParam.Direction = ParameterDirection.Output;
+
             cmd.Parameters.Add(outputParam);
             cmd.ExecuteNonQuery();
             return Convert.ToInt32(outputParam.Value);
@@ -36,12 +42,19 @@ namespace CRUDMahasiswaADO
 
         public DataTable GetMhs()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("sp_GetMahasiswa", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
             da = new SqlDataAdapter(cmd);
+
             dtMahasiswa = new DataTable();
             da.Fill(dtMahasiswa);
+
             return dtMahasiswa;
         }
 
