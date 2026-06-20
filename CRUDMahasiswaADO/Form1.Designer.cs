@@ -431,6 +431,7 @@
             this.btnImpExcel.TabIndex = 25;
             this.btnImpExcel.Text = "Import From Excel";
             this.btnImpExcel.UseVisualStyleBackColor = true;
+            this.btnImpExcel.Click += new System.EventHandler(this.btnImpExcel_Click);
             // 
             // btnImpDb
             // 
@@ -440,6 +441,7 @@
             this.btnImpDb.TabIndex = 26;
             this.btnImpDb.Text = "Import To Database";
             this.btnImpDb.UseVisualStyleBackColor = true;
+            this.btnImpDb.Click += new System.EventHandler(this.btnImpDb_Click);
             // 
             // fotoMhs
             // 
