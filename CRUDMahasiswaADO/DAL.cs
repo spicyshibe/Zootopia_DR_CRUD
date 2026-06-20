@@ -177,15 +177,16 @@ namespace CRUDMahasiswaADO
 
         public void InsertLog(string message)
         {
-            if (conn.State == ConnectionState.Closed)
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
+                string query = @"INSERT INTO LogError VALUES(GETDATE(), @Pesan)";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Pesan", pesan);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
-
-            SqlCommand cmd = new SqlCommand("sp_LogMessage", conn);
-            cmd.Parameters.AddWithValue("psn", message);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.ExecuteNonQuery();
         }
 
         public DataTable getProdi()
