@@ -146,6 +146,19 @@ namespace CRUDMahasiswaADO
             cmdInsert.ExecuteNonQuery();
         }
 
+        public void testInject(string nim)
+        {
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
+            string query = "Update mahasiswa set nama = 'Hacked lmao' where NIM = " + nim;
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+        }
+
         public DataTable GetMhsByNIM(string nim)
         {
             if (conn.State == ConnectionState.Closed) conn.Open();
