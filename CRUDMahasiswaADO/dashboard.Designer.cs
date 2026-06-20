@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTanggalMasuk = new System.Windows.Forms.DateTimePicker();
             this.cmbTipe = new System.Windows.Forms.ComboBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnDataMahasiswa = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.chartProdi = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProdi)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,12 +62,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "REKAP DATA MAHASIGMA";
             // 
-            // dateTimePicker1
+            // dtpTanggalMasuk
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(138, 52);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dtpTanggalMasuk.Location = new System.Drawing.Point(138, 52);
+            this.dtpTanggalMasuk.Name = "dtpTanggalMasuk";
+            this.dtpTanggalMasuk.Size = new System.Drawing.Size(200, 22);
+            this.dtpTanggalMasuk.TabIndex = 2;
             // 
             // cmbTipe
             // 
@@ -108,38 +108,38 @@
             this.btnDataMahasiswa.UseVisualStyleBackColor = true;
             this.btnDataMahasiswa.Click += new System.EventHandler(this.btnDataMahasiswa_Click);
             // 
-            // chart1
+            // chartProdi
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(16, 91);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(759, 294);
-            this.chart1.TabIndex = 7;
-            this.chart1.Text = "chart1";
+            chartArea1.Name = "ChartArea1";
+            this.chartProdi.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartProdi.Legends.Add(legend1);
+            this.chartProdi.Location = new System.Drawing.Point(16, 91);
+            this.chartProdi.Name = "chartProdi";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartProdi.Series.Add(series1);
+            this.chartProdi.Size = new System.Drawing.Size(759, 294);
+            this.chartProdi.TabIndex = 7;
+            this.chartProdi.Text = "chart1";
             // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartProdi);
             this.Controls.Add(this.btnDataMahasiswa);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.cmbTipe);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpTanggalMasuk);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "dashboard";
             this.Text = "dashboard";
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProdi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,11 +149,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpTanggalMasuk;
         private System.Windows.Forms.ComboBox cmbTipe;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnDataMahasiswa;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartProdi;
     }
 }

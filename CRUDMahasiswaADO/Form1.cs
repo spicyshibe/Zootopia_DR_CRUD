@@ -34,7 +34,7 @@ namespace CRUDMahasiswaADO
             conn = new SqlConnection(connectionString);
         }
 
-        private void simpanLog(string pesan)
+        private void simpanLog(string message)
         {
             dbLogic.InsertLog(message);
         }

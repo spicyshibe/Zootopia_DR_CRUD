@@ -161,7 +161,11 @@ namespace CRUDMahasiswaADO
 
         public DataTable GetMhsByNIM(string nim)
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("sp_GetMahasiswaByNIM", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("pNIM", nim);
@@ -173,7 +177,11 @@ namespace CRUDMahasiswaADO
 
         public void InsertLog(string message)
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("sp_LogMessage", conn);
             cmd.Parameters.AddWithValue("psn", message);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -182,7 +190,11 @@ namespace CRUDMahasiswaADO
 
         public DataTable getProdi()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("select namaprodi from prodi", conn);
             cmd.CommandType = CommandType.Text;
             dtProdi = new DataTable();
@@ -193,12 +205,17 @@ namespace CRUDMahasiswaADO
 
         public DataTable getDataRekap(string prodi, DateTime tanggalMasuk)
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
             SqlCommand cmd = new SqlCommand("sp_Report", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@inProdi", prodi);
             cmd.Parameters.AddWithValue("@inTglMsuk", tanggalMasuk.Year.ToString());
+
             da = new SqlDataAdapter(cmd);
+
             dtMahasiswa = new DataTable();
             da.Fill(dtMahasiswa);
             return dtMahasiswa;
@@ -206,7 +223,11 @@ namespace CRUDMahasiswaADO
 
         public DataTable getAllDataChart()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("sp_DashBoard", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             da = new SqlDataAdapter(cmd);
@@ -217,7 +238,11 @@ namespace CRUDMahasiswaADO
 
         public DataTable getDataChartByTahun(DateTime thMasuk)
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlCommand cmd = new SqlCommand("sp_DashBoardByTahun", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@inTglMsuk", thMasuk.Year);

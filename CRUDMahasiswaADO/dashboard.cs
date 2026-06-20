@@ -43,7 +43,7 @@ namespace CRUDMahasiswaADO
             cmbTipe.SelectedIndex = 0;
 
             isInitializing = false;
-            LoadDataChart();
+            loadDataChart();
 
         }
 
@@ -51,7 +51,7 @@ namespace CRUDMahasiswaADO
         {
             chartProdi.Series.Clear();
             chartProdi.Titles.Clear();
-            chartProdi.Legends.clear();
+            chartProdi.Legends.Clear();
             chartProdi.ChartAreas.Clear();
 
             ChartArea ca = new ChartArea("MainArea");
@@ -59,7 +59,7 @@ namespace CRUDMahasiswaADO
             ca.AxisY.Title = "jumlah Mahasiswa";
             ca.AxisX.LabelStyle.Angle = -45;
             ca.BackColor = Color.Transparent;
-            chartProdi.ChartAreas.add(ca);
+            chartProdi.ChartAreas.Add(ca);
             try
             {
                 if (button == 1)
@@ -73,7 +73,7 @@ namespace CRUDMahasiswaADO
 
                 }
 
-                SeriesChartTypetipe = (SeriesChartType)cmbTipe.SelectedValue;
+                SeriesChartType tipe = (SeriesChartType)cmbTipe.SelectedValue;
                 if (tipe == SeriesChartType.Column)
                 {
                     Series s = new Series("Mahasiswa");
@@ -85,7 +85,7 @@ namespace CRUDMahasiswaADO
                         s.Points.AddXY(prodi, jumlah);
 
                     }
-                    chartProdi.Series.Add(s)
+                    chartProdi.Series.Add(s);
                 }
                 else
                 {
@@ -120,7 +120,7 @@ namespace CRUDMahasiswaADO
             chartProdi.Titles.Add(title);
             Legend legend = new Legend("MainLegend");
             legend.Docking = Docking.Right;
-            chartProdi.Legends.Add(Legend);
+            chartProdi.Legends.Add(legend);
 
         }
 
