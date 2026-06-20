@@ -410,7 +410,7 @@ namespace CRUDMahasiswaADO
                             btnDelete.Enabled = false;
                             btnCari.Enabled = false;
                             btnLoad.Enabled = false;
-                            btnReset.Enabled = false;
+                            btnResetData.Enabled = false;
                             btnTestInjection.Enabled = false;
                         }
                         
@@ -421,7 +421,62 @@ namespace CRUDMahasiswaADO
 
         private void btnImpDb_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Tidak ada data untuk diimport.");
+                    return;
+                }
 
+                int sukses = 0;
+                foreach (DataRow row in dt.Rows)
+                {
+                    string nim = row["NIM"].ToString().Trim();
+                    string nama = row["Nama"].ToString().Trim();
+                    string jk = row["JenisKelamin"].ToString().Trim();
+                    string alamat = row["Alamat"].ToString().Trim();
+                    string kodeProdi = row["Nama Prodi"].ToString().Trim();
+                    string fotoPath = row.Table.Columns.Contains("FotoPath")
+                                        ? row["FotoPath"].ToString().Trim()
+                                        : string.Empty;
+
+                    if (string.IsNullOrEmpty(nim) || string.IsNullOrEmpty(nama))
+                        continue;
+
+                    DateTime tglLahir;
+                    if (!DateTime.TryParse(row["TanggalLahir"].ToString(), out tglLahir))
+                        continue;
+
+                    byte[] ConvertImageFromPath(string path)
+                    {
+                        if (string.IsNullOrWhiteSpace(path)) 
+                            return null;
+                        if (!File.Exists(path)) 
+                            return null;
+                        return File.ReadAllBytes(path);
+                    }
+
+                    byte[] fotoBytes = ConvertImageFromPath(fotoPath);
+                    dbLogic.InsertMhs(nim, nama, alamat, jk, tglLahir, kodeProdi, fotoBytes);
+                    sukses++;
+                }
+
+                MessageBox.Show("Data mahasiswa berhasil ditambahkan");
+                ClearForm();
+                LoadData();
+            }
+            catch (SqlException ex)
+            {
+                simpanLog("Rollback Insert :" + ex.Message);
+                MessageBox.Show("SQL Error:" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                simpanLog("General Error:" + ex.Message);
+                MessageBox.Show("General Error:" + ex.Message);
+            }
         }
     }
 }
