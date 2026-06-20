@@ -60,19 +60,26 @@ namespace CRUDMahasiswaADO
 
         public void InsertMhs(string nim, string nama, string alamat, string jeniskelamin, DateTime tanggalLahir, string kodeProdi, byte[] foto)
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
             SqlTransaction trans = conn.BeginTransaction();
+
             try
             {
                 SqlCommand command = new SqlCommand("sp_InsertMahasiswa", conn, trans);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("PNIM", nim);
+
+                command.Parameters.AddWithValue("pNIM", nim);
                 command.Parameters.AddWithValue("pNama", nama);
                 command.Parameters.AddWithValue("pAlamat", alamat);
                 command.Parameters.AddWithValue("pTanggalLahir", tanggalLahir);
                 command.Parameters.AddWithValue("pJenisKelamin", jeniskelamin);
                 command.Parameters.AddWithValue("pNmProdi", kodeProdi);
                 command.Parameters.AddWithValue("pFoto", foto);
+
                 command.ExecuteNonQuery();
                 trans.Commit();
             }
